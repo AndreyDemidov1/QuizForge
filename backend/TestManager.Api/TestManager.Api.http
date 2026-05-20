@@ -1,0 +1,6 @@
+@TestManager.Api_HostAddress = http://localhost:5289
+
+GET {{TestManager.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

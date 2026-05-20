@@ -1,0 +1,27 @@
+# .NET
+bin/
+obj/
+*.user
+*.db
+*.db-shm
+*.db-wal
+
+# Node
+node_modules/
+dist/
+*.local
+
+# Tauri
+frontend/src-tauri/target/
+
+# IDE
+.vs/
+.idea/
+*.swp
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Env
+.env.local
