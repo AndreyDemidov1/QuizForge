@@ -15,25 +15,44 @@ Controllers → Services → Repositories → EF Core (SQLite)
 - **DTO** — сущности БД не отдаются наружу
 - **SOLID** — разделение ответственности, зависимости через интерфейсы (Scoped)
 
+## Быстрый запуск одной командой (без npm)
+
+Как в референсном проекте: API и интерфейс с одного адреса, Node.js не нужен.
+
+```bash
+dotnet run --project backend/TestManager.Api --launch-profile fullstack
+```
+
+Или из корня репозитория:
+
+```powershell
+.\start.ps1
+```
+
+```cmd
+start.bat
+```
+
+Откройте в браузере: **http://127.0.0.1:1420**
+
 ## Запуск (разработка)
 
 ### Требования
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-- [Node.js 18+](https://nodejs.org/) и npm
+- [Node.js 18+](https://nodejs.org/) и npm — только для React/Tauri
 - Для десктопа: [Rust](https://www.rust-lang.org/tools/install) и [Tauri prerequisites](https://v2.tauri.app/start/prerequisites/)
 
-### 1. Бэкенд
+### 1. Только API
 
 ```bash
 cd backend/TestManager.Api
 dotnet run
 ```
 
-API: `http://localhost:5180`  
-Эндпоинты: `GET/POST /api/tests`, `GET/PUT/DELETE /api/tests/{id}`, `GET /api/tests/{id}/quiz`, `POST /api/tests/{id}/submit`
+API: `http://localhost:5180`
 
-### 2. Фронтенд (браузер)
+### 2. React-фронтенд (отдельно)
 
 ```bash
 cd frontend
@@ -41,7 +60,7 @@ npm install
 npm run dev
 ```
 
-Откройте `http://localhost:1420`
+Откройте `http://localhost:1420` (нужен запущенный бэкенд на `:5180`)
 
 ### 3. Десктоп (Tauri)
 
@@ -63,19 +82,6 @@ npm run tauri dev
 | **MultipleChoice** | Вес одного правильного = `1 / (число правильных)`; балл = (верно отмеченные × вес) − (неверно отмеченные × вес), минимум 0 |
 
 Максимум баллов = количество вопросов. Результат: `8.33 / 10` и `83.3%`.
-
-## Git-правила (по ТЗ)
-
-1. Не коммитить напрямую в `main`
-2. Работать в ветках `feature/*`, сливать через Pull Request
-3. Перед дедлайном убедиться, что всё слито в `main`
-
-```bash
-git checkout -b feature/initial-implementation
-# ... коммиты ...
-git push -u origin feature/initial-implementation
-# создать PR в main через GitHub
-```
 
 ## Структура проекта
 

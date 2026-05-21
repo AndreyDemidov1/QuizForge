@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QuizForge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css?v=1" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-icon">Q</div>
+          <div>
+            <h1>QuizForge</h1>
+            <p>Управление тестами</p>
+          </div>
+        </div>
+        <nav>
+          <button type="button" class="nav-btn active" data-view="list">Все тесты</button>
+          <button type="button" class="nav-btn" data-view="editor" id="navCreate">Создать тест</button>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <p id="status" class="status"></p>
+
+        <section id="listView">
+          <header class="page-header">
+            <div>
+              <h2>Библиотека тестов</h2>
+              <p class="muted">Список всех доступных тестов</p>
+            </div>
+            <button type="button" class="btn ghost" id="refreshButton">Обновить</button>
+          </header>
+          <div id="testList" class="test-list"></div>
+        </section>
+
+        <section id="editorView" class="hidden">
+          <header class="page-header">
+            <div>
+              <h2 id="editorTitle">Новый тест</h2>
+              <p class="muted">Заполните информацию и вопросы</p>
+            </div>
+          </header>
+          <form id="testForm" class="panel">
+            <label>
+              Название *
+              <input id="titleInput" maxlength="200" required />
+            </label>
+            <label>
+              Описание
+              <textarea id="descriptionInput" rows="3"></textarea>
+            </label>
+            <div id="questionsEditor"></div>
+            <div class="form-actions">
+              <button type="button" class="btn ghost" id="addQuestionButton">+ Добавить вопрос</button>
+              <button type="button" class="btn ghost" id="cancelEditor">Отмена</button>
+              <button type="submit" class="btn primary">Сохранить</button>
+            </div>
+          </form>
+        </section>
+
+        <section id="detailsView" class="hidden"></section>
+        <section id="takeView" class="hidden"></section>
+      </main>
+    </div>
+    <script src="/app.js?v=1"></script>
+  </body>
+</html>

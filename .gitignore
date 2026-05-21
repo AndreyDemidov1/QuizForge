@@ -23,5 +23,8 @@ frontend/src-tauri/target/
 Thumbs.db
 .DS_Store
 
+# Reference (not part of project)
+_reference/
+
 # Env
 .env.local
